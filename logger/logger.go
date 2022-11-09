@@ -14,8 +14,8 @@ type Handler interface {
 	Debug(description ...interface{})
 	Warn(err error)
 	Error(err error)
-	WithField(string, interface{})
-	WithFields(map[string]interface{})
+	WithField(string, interface{}) *Logger
+	WithFields(map[string]interface{}) *Logger
 }
 
 // Logger is the implementation of Handler interface
@@ -86,11 +86,13 @@ func (l *Logger) Debug(description ...interface{}) {
 }
 
 // WithField logs with added field
-func (l *Logger) WithField(s string, val interface{}) {
-	l.handler.WithField(s, val)
+func (l *Logger) WithField(s string, val interface{}) *Logger {
+	l.handler = l.handler.WithField(s, val)
+	return l
 }
 
 // WithFields logs with given added fields
-func (l *Logger) WithFields(d map[string]interface{}) {
-	l.handler.WithFields(logrus.Fields(d))
+func (l *Logger) WithFields(d map[string]interface{}) *Logger {
+	l.handler = l.handler.WithFields(logrus.Fields(d))
+	return l
 }

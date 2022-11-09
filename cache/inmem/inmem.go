@@ -25,7 +25,7 @@ func New(opts Options) (cache.Handler, error) {
 
 func (h *inmem) Get(key string) (interface{}, error) {
 	res, ok := h.handler.Get(key)
-	if ok {
+	if !ok {
 		return res, ErrKeyNotExist
 	}
 	return res, nil
@@ -33,8 +33,6 @@ func (h *inmem) Get(key string) (interface{}, error) {
 
 func (h *inmem) Set(key string, value interface{}, exp ...time.Duration) error {
 	if len(exp) == 0 {
-		h.handler.Set(key, value, gocache.DefaultExpiration)
-	} else if exp[0] == 0 {
 		h.handler.Set(key, value, gocache.NoExpiration)
 	} else {
 		h.handler.Set(key, value, exp[0])

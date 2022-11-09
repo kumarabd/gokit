@@ -1,7 +1,17 @@
 package server
 
+const (
+	GRPC ServerKind = "grpc"
+	HTTP ServerKind = "http"
+)
+
+type ServerKind string
 type Server interface {
 	Run(chan error)
+}
+
+type Options struct {
+	Kind ServerKind
 }
 
 type HostPort struct {
