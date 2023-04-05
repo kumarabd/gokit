@@ -7,7 +7,7 @@ const (
 
 type ServerKind string
 type Server interface {
-	Run(chan error)
+	Run(chan struct{}, chan error)
 }
 
 type Options struct {
