@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"sync"
 
-	"github.com/realnighthawk/bucky/config"
+	"github.com/kumarabd/gokit/config"
 	"github.com/spf13/viper"
 )
 

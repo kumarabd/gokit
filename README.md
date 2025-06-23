@@ -2,15 +2,15 @@
 
 <img align="right" width="159px" src="https://github.com/kumarabd/gokit/blob/master/assets/bucky.png">
 
-[![Build Status](https://github.com/realnighthawk/bucky/actions/workflows/go.yml/badge.svg?branch=v0.0.1)
+[![Build Status](https://github.com/kumarabd/gokit/actions/workflows/go.yml/badge.svg?branch=v0.0.1)
 [![codecov](https://codecov.io/gh/realnighthawk/bucky/branch/master/graph/badge.svg?token=8JUPZAA8ZW)](https://codecov.io/gh/realnighthawk/bucky)
-[![Go Report Card](https://goreportcard.com/badge/github.com/realnighthawk/bucky)](https://goreportcard.com/report/github.com/realnighthawk/bucky)
-<!--- [![GoDoc](https://pkg.go.dev/github.com/realnighthawk/bucky?status.svg)](https://pkg.go.dev/github.com/realnighthawk/bucky?tab=doc) 
+[![Go Report Card](https://goreportcard.com/badge/github.com/kumarabd/gokit)](https://goreportcard.com/report/github.com/kumarabd/gokit)
+<!--- [![GoDoc](https://pkg.go.dev/github.com/kumarabd/gokit?status.svg)](https://pkg.go.dev/github.com/kumarabd/gokit?tab=doc) 
 [![Join the chat at https://gitter.im/gin-gonic/gin](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/gin-gonic/gin?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) 
 [![TODOs](https://badgen.net/https/api.tickgit.com/badgen/github.com/gin-gonic/gin)](https://www.tickgit.com/browse?repo=github.com/gin-gonic/gin)
 [![Sourcegraph](https://sourcegraph.com/github.com/gin-gonic/gin/-/badge.svg)](https://sourcegraph.com/github.com/gin-gonic/gin?badge)--->
 [![Open Source Helpers](https://www.codetriage.com/realnighthawk/bucky/badges/users.svg)](https://www.codetriage.com/realnighthawk/bucky)
-[![Release](https://img.shields.io/github/issues/realnighthawk/bucky)](https://github.com/realnighthawk/bucky/releases)
+[![Release](https://img.shields.io/github/issues/realnighthawk/bucky)](https://github.com/kumarabd/gokit/releases)
 
 
 Golang based library/toolkit for building Microservices written in Go (Golang). It is as durable as the [vibranium](https://marvel.fandom.com/wiki/Vibranium), which is also up to 40 times faster. If you are in need of full packed features and good productivity, bucky is your guy.

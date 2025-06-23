@@ -1,6 +1,6 @@
 package server
 
-import "github.com/realnighthawk/bucky/errors"
+import "github.com/kumarabd/gokit/errors"
 
 var (
 	ErrInvalidKind    = errors.New("", errors.Alert, "Unknown server kind")

@@ -1,6 +1,6 @@
 package inmem
 
-import "github.com/realnighthawk/bucky/errors"
+import "github.com/kumarabd/gokit/errors"
 
 var (
 	ErrKeyNotExist = errors.New("", errors.Alert, "Key does not exist")

@@ -3,8 +3,8 @@ package inmem
 import (
 	"time"
 
+	"github.com/kumarabd/gokit/cache"
 	gocache "github.com/patrickmn/go-cache"
-	"github.com/realnighthawk/bucky/cache"
 )
 
 type inmem struct {
