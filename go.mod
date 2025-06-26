@@ -3,6 +3,8 @@ module github.com/kumarabd/gokit
 go 1.13
 
 require (
+	github.com/go-logr/logr v1.4.3
+	github.com/go-logr/zerologr v1.2.3
 	github.com/golang/protobuf v1.3.3 // indirect
 	github.com/kr/text v0.2.0 // indirect
 	github.com/niemeyer/pretty v0.0.0-20200227124842-a10e7caefd8e // indirect
