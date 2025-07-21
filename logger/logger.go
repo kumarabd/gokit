@@ -15,7 +15,8 @@ type Handler struct {
 
 // New instantiates bucky logger instance
 func New(appname string, opts Options) (*Handler, error) {
-	logger := zerolog.New(os.Stdout).With().Timestamp().Logger()
+	// Use built-in console format (human-readable)
+	logger := zerolog.New(zerolog.ConsoleWriter{Out: os.Stdout}).With().Timestamp().Logger()
 	logger = logger.With().Str("app", appname).Logger()
 	zerolog.SetGlobalLevel(zerolog.DebugLevel)
 
