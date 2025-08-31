@@ -2,13 +2,13 @@ package client
 
 import (
 	"fmt"
-	"io/ioutil"
+	"io"
 	"net/http"
 )
 
 const (
-	GET  string = "GET"
-	POST        = "POST"
+	GET  = "GET"
+	POST = "POST"
 )
 
 type Options struct {
@@ -69,7 +69,7 @@ func (h *Handler) Do() (*Response, error) {
 		return nil, err
 	}
 
-	data, err := ioutil.ReadAll(res.Body)
+	data, err := io.ReadAll(res.Body)
 	if err != nil {
 		return nil, err
 	}
