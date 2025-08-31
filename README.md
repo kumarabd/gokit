@@ -86,7 +86,7 @@ GoKit includes a powerful CLI tool for scaffolding and managing microservices:
 
 #### Homebrew (Recommended)
 ```bash
-# Add the tap (uses homebrew branch)
+# Add the tap
 brew tap kumarabd/gokit
 
 # Install gokit

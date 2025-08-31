@@ -61,6 +61,11 @@ coverage.html
 .template/
 gokit-template-*
 
+# CLI build artifacts
+cli/gokit
+cli/gokit-*
+cli/*.exe
+
 # GitLab CI artifacts
 artifacts/
 
