@@ -9,10 +9,10 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - name: Checkout homebrew branch
+    - name: Checkout homebrew-gokit repository
       uses: actions/checkout@v4
       with:
-        ref: homebrew
+        repository: kumarabd/homebrew-gokit
         token: ${{ secrets.GITHUB_TOKEN }}
     
     - name: Setup Ruby
@@ -24,7 +24,7 @@ jobs:
     - name: Update formula
       run: |
         # Download the update script from main branch
-        curl -s https://raw.githubusercontent.com/${{ github.repository }}/master/scripts/update-homebrew.rb > update-formula.rb
+        curl -s https://raw.githubusercontent.com/${{ github.repository }}/master/scripts/update-homebrew-tap.rb > update-formula.rb
         chmod +x update-formula.rb
         
         # Update the formula with the new version
@@ -36,4 +36,4 @@ jobs:
         git config --local user.name "GitHub Action"
         git add Formula/gokit.rb
         git commit -m "Update GoKit to ${{ github.event.release.tag_name }}"
-        git push
+        git push origin main
