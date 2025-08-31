@@ -63,3 +63,7 @@ gokit-template-*
 
 # GitLab CI artifacts
 artifacts/
+
+# Homebrew (handled in homebrew branch)
+Formula/
+homebrew-tap/

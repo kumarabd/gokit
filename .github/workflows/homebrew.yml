@@ -1,0 +1,39 @@
+name: Update Homebrew Formula
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  update-homebrew:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout homebrew branch
+      uses: actions/checkout@v4
+      with:
+        ref: homebrew
+        token: ${{ secrets.GITHUB_TOKEN }}
+    
+    - name: Setup Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: '3.0'
+        bundler-cache: false
+    
+    - name: Update formula
+      run: |
+        # Download the update script from main branch
+        curl -s https://raw.githubusercontent.com/${{ github.repository }}/master/scripts/update-homebrew.rb > update-formula.rb
+        chmod +x update-formula.rb
+        
+        # Update the formula with the new version
+        ruby update-formula.rb ${{ github.event.release.tag_name }}
+    
+    - name: Commit and push changes
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add Formula/gokit.rb
+        git commit -m "Update GoKit to ${{ github.event.release.tag_name }}"
+        git push
