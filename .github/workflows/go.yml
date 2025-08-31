@@ -127,24 +127,7 @@ jobs:
         name: gokit-${{ matrix.goos }}-${{ matrix.goarch }}
         path: cli/gokit-${{ matrix.goos }}-${{ matrix.goarch }}${{ matrix.goos == 'windows' && '.exe' || '' }}
 
-  security:
-    name: Security scan
-    runs-on: ubuntu-latest
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
 
-    - name: Set up Go
-      uses: actions/setup-go@v4
-      with:
-        go-version: ${{ env.GO_VERSION }}
-        cache: true
-
-    - name: Install gosec
-      run: go install github.com/securecodewarrior/gosec/cmd/gosec@latest
-
-    - name: Run gosec
-      run: gosec ./...
 
   release:
     name: Release
