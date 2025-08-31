@@ -20,9 +20,136 @@ Golang based library/toolkit for building Microservices written in Go (Golang). 
 
 - [Bucky Web Toolkit](#bucky-web-toolkit)
   - [Contents](#contents)
+  - [Quick Start](#quick-start)
+  - [CLI Tool](#cli-tool)
+  - [Features](#features)
   - [Usage](#usage)
   - [Benchmarks](#benchmarks)
   - [Users](#users)
+
+## Quick Start
+
+### Using the CLI Tool
+
+The easiest way to get started with GoKit is using our CLI tool:
+
+```bash
+# Install the CLI
+go install github.com/kumarabd/gokit/cli@latest
+
+# Create a new HTTP service
+gokit new service --name user-service --template http
+
+# Add monitoring to your service
+gokit add monitoring --service user-service
+
+# Add tracing to your service
+gokit add tracing --service user-service
+```
+
+### Using the Library Directly
+
+```go
+package main
+
+import (
+    "github.com/kumarabd/gokit/config"
+    "github.com/kumarabd/gokit/logger"
+    "github.com/kumarabd/gokit/server"
+)
+
+type Config struct {
+    Server server.HostPort `yaml:"server"`
+    Log    logger.Options `yaml:"log"`
+}
+
+func main() {
+    // Load configuration
+    var cfg Config
+    if err := config.New(&cfg); err != nil {
+        log.Fatal(err)
+    }
+
+    // Initialize logger
+    logger := logger.New(cfg.Log)
+    defer logger.Close()
+
+    logger.Info("Service started")
+}
+```
+
+## CLI Tool
+
+GoKit includes a powerful CLI tool for scaffolding and managing microservices:
+
+### Installation
+
+```bash
+# Build from source
+cd cli && go build -o gokit main.go
+
+# Or install globally
+go install github.com/kumarabd/gokit/cli@latest
+```
+
+### Commands
+
+```bash
+# Create new services
+gokit new service --name user-service --template http
+gokit new service --name payment-service --template grpc
+gokit new service --name worker-service --template worker
+
+# Add features to existing services
+gokit add monitoring --service ./user-service
+gokit add tracing --service ./payment-service
+gokit add caching --service ./notification-service
+
+# Show version
+gokit version
+```
+
+### Supported Templates
+
+- **HTTP Service**: RESTful API with health checks and graceful shutdown
+- **gRPC Service**: gRPC server with protocol buffer support
+- **Event Service**: Event-driven service for message processing
+- **Worker Service**: Background job processing service
+
+### Supported Features
+
+- **Monitoring**: Prometheus metrics and monitoring
+- **Tracing**: OpenTelemetry distributed tracing
+- **Caching**: In-memory caching with TTL
+- **Client**: HTTP client utilities
+- **Middleware**: Common HTTP middleware (CORS, logging, recovery)
+
+## Features
+
+GoKit provides a comprehensive set of utilities for building microservices:
+
+### Core Components
+
+- **Configuration Management**: YAML, environment variables, and command-line flags
+- **Structured Logging**: JSON logging with zerolog integration
+- **Error Handling**: Standardized error types with severity levels
+- **Caching**: Interface-based caching with in-memory implementation
+- **HTTP Client**: Simple HTTP client for making requests
+- **Server Abstractions**: HTTP and gRPC server interfaces
+
+### Observability
+
+- **Monitoring**: Prometheus metrics integration
+- **Tracing**: OpenTelemetry support for distributed tracing
+- **Health Checks**: Built-in health check endpoints
+- **Graceful Shutdown**: Proper service shutdown handling
+
+### Development Tools
+
+- **CLI Scaffolding**: Generate new services with best practices
+- **Feature Addition**: Add capabilities to existing services
+- **Project Templates**: Standardized project structure
+- **Documentation**: Comprehensive documentation and examples
 
 ## Usage
 
