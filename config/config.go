@@ -10,7 +10,6 @@ import (
 	"gopkg.in/yaml.v3"
 )
 
-// New creates a new configuration instance without requiring any arguments
 func New(configObject interface{}) (interface{}, error) {
 	// Create a root command for handling flags
 	cmd := &cobra.Command{
@@ -19,6 +18,11 @@ func New(configObject interface{}) (interface{}, error) {
 		Run:   func(cmd *cobra.Command, args []string) {},
 	}
 
+	return NewWithCommand(cmd, configObject)
+}
+
+// New creates a new configuration instance without requiring any arguments
+func NewWithCommand(cmd *cobra.Command, configObject interface{}) (interface{}, error) {
 	// Add config file flag
 	var configFile string
 	cmd.PersistentFlags().StringVar(&configFile, "config", "", "Path to config file")
